@@ -82,8 +82,15 @@ public class JobData {
         return jobs;
     }
 
-
-
+    /**
+     * Returns results of search the jobs data by key/value, using
+     * inclusion of the search term.
+     *
+     * Search is done by looping through all of the elements of each column's value, within each row
+     *
+     * @param value Value of teh field to search for
+     * @return List of all jobs matching the criteria
+     */
     public static ArrayList<HashMap<String, String>> findByValue(String value) {
 
         // load data, if not already loaded
