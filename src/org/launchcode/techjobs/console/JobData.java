@@ -72,9 +72,9 @@ public class JobData {
 
         for (HashMap<String, String> row : allJobs) {
 
-            String aValue = row.get(column);
+            String aValue = row.get(column).toUpperCase();
 
-            if (aValue.equalsIgnoreCase(value)) {
+            if (aValue.contains(value.toUpperCase())) {
                 jobs.add(row);
             }
         }
@@ -82,16 +82,7 @@ public class JobData {
         return jobs;
     }
 
-    /**
-     * Returns results of search the jobs data by key/value, using
-     * inclusion of the search term.
-     *
-     * The search is done by looping through all of the columns in each row
-     * When an entry is found the loop adds the entire row and skips to the next iteration
-     *
-     * @param value Value of teh field to search for
-     * @return List of all jobs matching the criteria
-     */
+
 
     public static ArrayList<HashMap<String, String>> findByValue(String value) {
 
@@ -101,10 +92,9 @@ public class JobData {
         ArrayList<HashMap<String, String>> jobs = new ArrayList<>();
 
         for (HashMap<String, String> row : allJobs) {
-
             for (String key : row.keySet()) {
-                String aValue = row.get(key);
-                if (aValue.equalsIgnoreCase(value)) {
+                String aValue = row.get(key).toUpperCase();
+                if (aValue.contains(value.toUpperCase())) {
                     jobs.add(row);
                     break;
                 }
